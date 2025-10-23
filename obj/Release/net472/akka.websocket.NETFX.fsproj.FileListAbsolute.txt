@@ -2,6 +2,7 @@ S:\SSIS\akka.websocket\bin\Release\net472\akka.websocket.NETFX.exe.config
 S:\SSIS\akka.websocket\bin\Release\net472\akka.websocket.NETFX.exe
 S:\SSIS\akka.websocket\bin\Release\net472\akka.websocket.NETFX.pdb
 S:\SSIS\akka.websocket\bin\Release\net472\FSharp.Core.dll
+S:\SSIS\akka.websocket\bin\Release\net472\Newtonsoft.Json.dll
 S:\SSIS\akka.websocket\bin\Release\net472\Suave.dll
 S:\SSIS\akka.websocket\bin\Release\net472\cs\FSharp.Core.resources.dll
 S:\SSIS\akka.websocket\bin\Release\net472\de\FSharp.Core.resources.dll

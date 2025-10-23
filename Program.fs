@@ -302,7 +302,7 @@ module SimpleKiller =
             printfn "PowerShell started without inherited handles."
 
 
-    type KillActor(system: ActorSystem, nodeAddress: string) as this =
+    type KillActor(system: ActorSystem, nodeAddress: string, wsOpt:WebSocket option) as this =
         inherit UntypedActor()
 
         let log = system.Log
@@ -388,16 +388,16 @@ module SimpleKiller =
                     startInfo.WindowStyle <- ProcessWindowStyle.Hidden
 
                     startInfo.UseShellExecute <- true
-                    //startInfo.RedirectStandardInput <- true 
+                    //startInfo.RedirectStandardInput <- true  
                     //startInfo.RedirectStandardOutput <- true
                     //startInfo.RedirectStandardError <- true
 
 
                     let proc = Process.Start(startInfo)
 
-                    startWithoutHandleInheritance encodedScript
+                    //startWithoutHandleInheritance encodedScript
 
-                    log.Info("KillActor started monitoring PowerShell process '{1}'.", safeFilePath)
+                    //log.Info("KillActor started monitoring PowerShell process '{1}'.", safeFilePath)
 
                     match proc with
                     | null ->
@@ -436,7 +436,12 @@ module SimpleKiller =
 
             | :? string as msg when String.Equals(msg, "healthcheck", StringComparison.OrdinalIgnoreCase) ->
                 printfn "checking healthness by actor"
-                this.Sender.Tell("ok", this.Self)
+                if wsOpt.IsNone then
+                    this.Sender.Tell("ok", this.Self)
+                else
+                    wsOpt.Value.send Text (ArraySegment<byte>(Encoding.UTF8.GetBytes "ok")) true
+                    |> Async.Ignore
+                    |> Async.Start
 
             | :? string as msg when String.Equals(msg, "kill", StringComparison.OrdinalIgnoreCase) ->
                 log.Info("KillActor killing now (no automation payload).")
@@ -448,12 +453,12 @@ module SimpleKiller =
             | msg -> 
                 log.Info(sprintf "KillActor received payload: %A" msg)
 
-    let simpleKillerFun nodeAddress (actorSystem:ActorSystem)  (wsOpt:WebSocket option) =
+    let simpleKillerFun nodeAddress (actorSystem:ActorSystem) (wsOpt:WebSocket option) =
         lock KillActor.locker (fun _ ->
             if KillActor.iaref.IsSome then
                 KillActor.iaref
             else
-                let killProps = Props.Create<KillActor>(actorSystem, nodeAddress)
+                let killProps = Props.Create<KillActor>(actorSystem, nodeAddress, wsOpt)
                 let killActor = actorSystem.ActorOf(killProps, "ws-kill")
                 KillActor.iaref <- Some killActor
                 Some killActor

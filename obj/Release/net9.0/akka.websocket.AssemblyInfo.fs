@@ -10,10 +10,10 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("Akka.WebSocket contributors")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Release")>]
 [<assembly: System.Reflection.AssemblyDescriptionAttribute("Lightweight bridge that pushes WebSocket payloads into an Akka.NET actor system using Suave.")>]
-[<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1+99f24dde7046ba7b4b0e4a44ee3575e88f25334c")>]
+[<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+9675f5e329607a2fac0fd67a6dc9fd173d8b893a")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("akka.websocket")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("akka.websocket")>]
-[<assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.0")>]
+[<assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")>]
 [<assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/ingted/akka.websocket")>]
 do()

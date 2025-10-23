@@ -43,6 +43,7 @@ try {
     #copy   $pkg.FullName "C:\Program Files\dotnet\sdk\8.0.302\FSharp\library-packs" -force
     #copy   $pkg.FullName $(Get-LibPacksContent) -force
     copy   "$($assembly)" "../../../../DB2Query/DB2FQueryWrapper/Assemblies" -force
+    copy   "$($assembly)" "../../../../DB2Query/DB2FQueryWrapper/bin/$build/net472" -force
     copy   "$($assembly)" "//10.36.206.244/s$/PFCF_RT" -force
 }
 catch {
@@ -51,4 +52,4 @@ catch {
     write-host "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
 }
 
-cd ../
+cd ../../..

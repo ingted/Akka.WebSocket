@@ -5,7 +5,7 @@
   },
   "projects": {
     "S:\\SSIS\\akka.websocket\\akka.websocket.fsproj": {
-      "version": "1.0.1",
+      "version": "1.0.2",
       "restore": {
         "projectUniqueName": "S:\\SSIS\\akka.websocket\\akka.websocket.fsproj",
         "projectName": "FAkka.WebSocket",
