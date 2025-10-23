@@ -1,0 +1,15 @@
+S:\SSIS\pfcf_ai_reportgen\pfcf_ai_reportgen\wwwroot\Scripts\pfcf_ai_reportgen.head.js
+S:\SSIS\pfcf_ai_reportgen\pfcf_ai_reportgen\wwwroot\Scripts\pfcf_ai_reportgen.css
+S:\SSIS\pfcf_ai_reportgen\pfcf_ai_reportgen\wwwroot\index.html
+S:\SSIS\pfcf_ai_reportgen\pfcf_ai_reportgen\wwwroot\Scripts\WebSharper.Core.JavaScript\Runtime.js
+S:\SSIS\pfcf_ai_reportgen\pfcf_ai_reportgen\wwwroot\Scripts\pfcf_ai_reportgen.min.js
+S:\SSIS\pfcf_ai_reportgen\pfcf_ai_reportgen\wwwroot\Scripts\pfcf_ai_reportgen.head.html
+S:\SSIS\pfcf_ai_reportgen\pfcf_ai_reportgen\wwwroot\Scripts\pfcf_ai_reportgen.js
+wwwroot\index.html
+wwwroot\Scripts\pfcf_ai_reportgen.css
+wwwroot\Scripts\pfcf_ai_reportgen.head.html
+wwwroot\Scripts\pfcf_ai_reportgen.head.js
+wwwroot\Scripts\pfcf_ai_reportgen.js
+wwwroot\Scripts\pfcf_ai_reportgen.min.js
+wwwroot\Scripts\WebSharper.Core.JavaScript\Runtime.js
+wwwroot\Scripts\WebSharper.Core.JavaScript\Runtime.ts

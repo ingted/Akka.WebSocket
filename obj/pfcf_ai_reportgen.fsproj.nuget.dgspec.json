@@ -1,0 +1,1074 @@
+{
+  "format": 1,
+  "restore": {
+    "S:\\SSIS\\pfcf_ai_reportgen\\pfcf_ai_reportgen\\pfcf_ai_reportgen.fsproj": {}
+  },
+  "projects": {
+    "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster.Tools\\Akka.Cluster.Tools.csproj": {
+      "version": "1.5.34",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster.Tools\\Akka.Cluster.Tools.csproj",
+        "projectName": "Akka.Cluster.Tools",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster.Tools\\Akka.Cluster.Tools.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster.Tools\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\Akka.Cluster.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\Akka.Cluster.csproj"
+              },
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\Akka.Coordination.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\Akka.Coordination.csproj"
+              },
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Discovery\\Akka.Discovery.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Discovery\\Akka.Discovery.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Akka.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.60.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.303, 9.0.303]"
+            }
+          ],
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\Akka.Cluster.csproj": {
+      "version": "1.5.34",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\Akka.Cluster.csproj",
+        "projectName": "Akka.Cluster",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\Akka.Cluster.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\Akka.Coordination.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\Akka.Coordination.csproj"
+              },
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Remote\\Akka.Remote.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Remote\\Akka.Remote.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Akka.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.60.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
+            "System.Threading.Channels": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.303, 9.0.303]"
+            }
+          ],
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\Akka.Coordination.csproj": {
+      "version": "1.5.34",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\Akka.Coordination.csproj",
+        "projectName": "Akka.Coordination",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\Akka.Coordination.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Coordination\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Akka.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
+            "System.Threading.Channels": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.303, 9.0.303]"
+            }
+          ],
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Discovery\\Akka.Discovery.csproj": {
+      "version": "1.5.34",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Discovery\\Akka.Discovery.csproj",
+        "projectName": "Akka.Discovery",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Discovery\\Akka.Discovery.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Discovery\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Akka.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.303, 9.0.303]"
+            }
+          ],
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Remote\\Akka.Remote.csproj": {
+      "version": "1.5.34",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Remote\\Akka.Remote.csproj",
+        "projectName": "Akka.Remote",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Remote\\Akka.Remote.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Remote\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Akka.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "DotNetty.Handlers": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.26.1, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.60.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
+            "System.Threading.Channels": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.303, 9.0.303]"
+            }
+          ],
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Serialization.Hyperion\\Akka.Serialization.Hyperion.csproj": {
+      "version": "1.5.34",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Serialization.Hyperion\\Akka.Serialization.Hyperion.csproj",
+        "projectName": "Akka.Serialization.Hyperion",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Serialization.Hyperion\\Akka.Serialization.Hyperion.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Serialization.Hyperion\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Akka.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "Hyperion": {
+              "target": "Package",
+              "version": "[0.12.2, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "System.Reflection": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.303, 9.0.303]"
+            }
+          ],
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj": {
+      "version": "1.5.34",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj",
+        "projectName": "Akka",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Akka.Analyzers": {
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "Microsoft.Extensions.ObjectPool": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Polyfill": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.28.0, )"
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "System.Reflection.Emit": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
+            "System.Threading.Channels": {
+              "target": "Package",
+              "version": "[8.0.*, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.303, 9.0.303]"
+            }
+          ],
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\DB2FQueryWrapper.NET9\\DB2FQueryWrapper.NET9.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\DB2FQueryWrapper.NET9\\DB2FQueryWrapper.NET9.fsproj",
+        "projectName": "DB2FQueryWrapper",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\DB2FQueryWrapper.NET9\\DB2FQueryWrapper.NET9.fsproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\DB2FQueryWrapper.NET9\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\sdk\\9.0.303\\FSharp\\library-packs": {},
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster.Tools\\Akka.Cluster.Tools.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster.Tools\\Akka.Cluster.Tools.csproj"
+              },
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\Akka.Cluster.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Cluster\\Akka.Cluster.csproj"
+              },
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Serialization.Hyperion\\Akka.Serialization.Hyperion.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka.Serialization.Hyperion\\Akka.Serialization.Hyperion.csproj"
+              },
+              "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\akka.net\\Akka\\Akka.csproj"
+              }
+            }
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FAkka.Argu": {
+              "target": "Package",
+              "version": "[1.0.0, )",
+              "generatePathProperty": true
+            },
+            "FAkka.Chiron": {
+              "target": "Package",
+              "version": "[9.0.300, )",
+              "generatePathProperty": true
+            },
+            "FAkka.Deedle": {
+              "target": "Package",
+              "version": "[8.8.8.301, )",
+              "generatePathProperty": true
+            },
+            "FAkka.FsPickler": {
+              "target": "Package",
+              "version": "[9.0.300, )",
+              "generatePathProperty": true
+            },
+            "FParsec": {
+              "target": "Package",
+              "version": "[2.0.0-beta2, )",
+              "generatePathProperty": true
+            },
+            "FParsec.CSharp": {
+              "target": "Package",
+              "version": "[12.6.0, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[9.0.300, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.0.2, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "generatePathProperty": true
+            },
+            "SqlKata": {
+              "target": "Package",
+              "version": "[4.0.1, )",
+              "generatePathProperty": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "generatePathProperty": true
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "generatePathProperty": true
+            },
+            "System.Data.OleDb": {
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "generatePathProperty": true
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[6.1.2, )",
+              "generatePathProperty": true
+            },
+            "System.Security.Permissions": {
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "generatePathProperty": true
+            },
+            "System.ValueTuple": {
+              "target": "Package",
+              "version": "[4.6.1, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "S:\\SSIS\\pfcf_ai_reportgen\\pfcf_ai_reportgen\\pfcf_ai_reportgen.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "S:\\SSIS\\pfcf_ai_reportgen\\pfcf_ai_reportgen\\pfcf_ai_reportgen.fsproj",
+        "projectName": "pfcf_ai_reportgen",
+        "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\pfcf_ai_reportgen\\pfcf_ai_reportgen.fsproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "S:\\SSIS\\pfcf_ai_reportgen\\pfcf_ai_reportgen\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "S:\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\sdk\\9.0.303\\FSharp\\library-packs": {},
+          "https://10.36.205.96:8080/v3/index.json": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "S:\\SSIS\\pfcf_ai_reportgen\\DB2FQueryWrapper.NET9\\DB2FQueryWrapper.NET9.fsproj": {
+                "projectPath": "S:\\SSIS\\pfcf_ai_reportgen\\DB2FQueryWrapper.NET9\\DB2FQueryWrapper.NET9.fsproj"
+              }
+            }
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[9.0.300, )",
+              "generatePathProperty": true
+            },
+            "Suave": {
+              "target": "Package",
+              "version": "[2.6.2, )",
+              "generatePathProperty": true
+            },
+            "WebSharper": {
+              "target": "Package",
+              "version": "[9.1.6.592, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.AspNetCore": {
+              "target": "Package",
+              "version": "[9.1.6.592, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.AspNetCore.WebSocket": {
+              "target": "Package",
+              "version": "[9.1.1.579, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.FSharp": {
+              "target": "Package",
+              "version": "[9.1.6.592, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.UI": {
+              "target": "Package",
+              "version": "[9.1.6.592, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
