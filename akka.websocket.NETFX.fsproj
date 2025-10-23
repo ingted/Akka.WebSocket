@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net472</TargetFrameworks>
+    <PackageId>FAkka.WebSocket</PackageId>
+    <Title>FAkka.WebSocket</Title>
+    <Authors>Akka.WebSocket contributors</Authors>
+    <Company />
+    <Description>Lightweight bridge that pushes WebSocket payloads into an Akka.NET actor system using Suave.</Description>
+    <PackageTags>akka;suave;websocket;fsharp</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/ingted/akka.websocket</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="Akka" Version="1.5.54" />
+    <PackageReference Include="Akka.Cluster" Version="1.5.54" />-->
+    <PackageReference Include="Suave" Version="2.5.6" />
+	<Reference Include="MergedSB">
+		<HintPath>../DB2Query/DB2FQueryWrapper/Assemblies/MergedSB.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="THIRD-PARTY-NOTICES.md" Pack="true" PackagePath="" />
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>

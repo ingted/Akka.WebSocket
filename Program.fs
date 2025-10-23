@@ -109,12 +109,12 @@ module WebSocketServer =
 
     let websocketLoop
         (actorSystem: ActorSystem)
-        (handleActorGetter: WebSocket option -> IActorRef option)
+        (handleActorGetter: ActorSystem -> WebSocket option -> IActorRef option)
         (ws: WebSocket)
         : SocketOp<unit> =
         let logger = log actorSystem
 
-        match handleActorGetter (Some ws) with
+        match handleActorGetter actorSystem (Some ws) with
         | None ->
             socket {
                 logger.Error("No handler actor available for WebSocket connection; closing client.")
@@ -163,7 +163,7 @@ module WebSocketServer =
         (wsName: string)
         (defaultWebpartOpt: (IActorRef option -> WebPart list) option)
         configChoice
-        (handleActorGetter: WebSocket option -> IActorRef option)
+        (handleActorGetter: ActorSystem -> WebSocket option -> IActorRef option)
         : ServerHandle =
 
         if isNull (box actorSystem) then
@@ -179,7 +179,7 @@ module WebSocketServer =
         let healthRoute : WebPart =
             fun ctx ->
                 async {
-                    match handleActorGetter None with
+                    match handleActorGetter actorSystem None with
                     | None ->
                         return! SERVICE_UNAVAILABLE "handler unavailable" ctx
                     | Some handler ->
@@ -194,7 +194,7 @@ module WebSocketServer =
         let webApp =
             match defaultWebpartOpt with
             | None -> []
-            | Some lGen -> lGen (handleActorGetter None)
+            | Some lGen -> lGen (handleActorGetter actorSystem None)
             |> List.append [
                 path $"/{wsName}" >=> wsEndpoint
                 path "/health" >=> healthRoute
@@ -225,6 +225,19 @@ module WebSocketServer =
         new ServerHandle(cts)
 
 module Program =
+    open System
+    open System.IO
+    open System.Reflection
+    //let exeDir = AppDomain.CurrentDomain.BaseDirectory
+
+    //let dll = Directory.GetFiles(exeDir, "MergedSB.dll")[0]
+
+    //try
+    //    Assembly.LoadFile(dll) |> ignore
+    //    printfn "Loaded: %s" dll
+    //with ex ->
+    //        printfn "Failed to load %s: %s" dll ex.Message
+
 
     let parseInt (fallback: int) (value: string) =
         let maxPort = int UInt16.MaxValue
@@ -285,7 +298,7 @@ akka {{
         let echoActor = actorSystem.ActorOf(echoProps, "ws-echo")
         log.Info("Echo actor spawned at {0}", echoActor.Path.ToStringWithUid())
 
-        let echoActorGetter (_: WebSocket option) =
+        let echoActorGetter (asys:ActorSystem) (_: WebSocket option) =
             Some echoActor
 
         let server = WebSocketServer.start actorSystem "ws" None (Choice2Of2 (httpHost, httpPort)) echoActorGetter

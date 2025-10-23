@@ -10,6 +10,7 @@ The library exposes a single entry point: start Suave, hand it an `ActorSystem` 
 - **Health probe support** – `/health` sends `"healthcheck"` to the handler actor and returns its response.
 - **Multi-target build** – ships as a single package for `net9.0` and `netstandard2.0`.
 - **Graceful shutdown** – disposing the returned `ServerHandle` stops Suave and cancels the WebSocket loop.
+- **Explicit licensing** – ships under MIT while clearly documenting bundled Apache‑licensed dependencies (Suave 2.5.6 and Akka.NET 1.5.54).
 
 ## Getting Started
 
@@ -110,4 +111,5 @@ Publish the resulting `.nupkg` to NuGet with your preferred workflow (`dotnet nu
 
 ## License
 
-This project is licensed under the terms of the included `LICENSE` file.
+This project is licensed under the terms of the included `LICENSE` file (MIT).  
+Suave 2.5.6 and Akka.NET 1.5.54 are distributed under the Apache License 2.0; see `THIRD-PARTY-NOTICES.md` for details and required notices.

@@ -1,7 +1,0 @@
-S:\SSIS\akka.websocket\obj\Debug\net48\akka.websocket.fsproj.AssemblyReference.cache
-S:\SSIS\akka.websocket\obj\Debug\net48\akka.websocket.fsproj.SuggestedBindingRedirects.cache
-S:\SSIS\akka.websocket\obj\Debug\net48\akka.websocket.exe.config
-S:\SSIS\akka.websocket\obj\Debug\net48\akka.websocket.AssemblyInfoInputs.cache
-S:\SSIS\akka.websocket\obj\Debug\net48\akka.websocket.AssemblyInfo.fs
-S:\SSIS\akka.websocket\obj\Debug\net48\akka.websocket.fsproj.CoreCompileInputs.cache
-S:\SSIS\akka.websocket\obj\Debug\net48\akka.websocket.sourcelink.json
