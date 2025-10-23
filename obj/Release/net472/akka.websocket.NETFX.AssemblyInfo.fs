@@ -11,7 +11,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Release")>]
 [<assembly: System.Reflection.AssemblyDescriptionAttribute("Lightweight bridge that pushes WebSocket payloads into an Akka.NET actor system using Suave.")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be27897e8e8e7cace51b8082e8f97846b7a818eb")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+144027c12df43b4824806649b25118d7d453661c")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("akka.websocket.NETFX")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("akka.websocket.NETFX")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

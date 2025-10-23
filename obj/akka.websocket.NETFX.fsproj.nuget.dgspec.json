@@ -54,6 +54,11 @@
               "version": "[9.0.300, )",
               "generatePathProperty": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
+              "generatePathProperty": true
+            },
             "Suave": {
               "target": "Package",
               "version": "[2.5.6, )",

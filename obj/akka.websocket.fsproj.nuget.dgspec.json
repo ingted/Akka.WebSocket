@@ -5,7 +5,7 @@
   },
   "projects": {
     "S:\\SSIS\\akka.websocket\\akka.websocket.fsproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "S:\\SSIS\\akka.websocket\\akka.websocket.fsproj",
         "projectName": "FAkka.WebSocket",
@@ -69,6 +69,11 @@
               "version": "[9.0.300, )",
               "generatePathProperty": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
+              "generatePathProperty": true
+            },
             "Suave": {
               "target": "Package",
               "version": "[2.5.6, )",
@@ -117,6 +122,11 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true,
+              "generatePathProperty": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "generatePathProperty": true
             },
             "Suave": {

@@ -17,6 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="PostBuildEvent.ps1" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
@@ -24,6 +25,7 @@
     <PackageReference Include="Akka" Version="1.5.54" />
     <PackageReference Include="Akka.Cluster" Version="1.5.54" />
     <PackageReference Include="Suave" Version="2.5.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,5 +33,13 @@
     <None Include="THIRD-PARTY-NOTICES.md" Pack="true" PackagePath="" />
     <None Include="LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+		<Exec Command="powershell -c &quot;write-host '====== Start Post-Build Event ======'&quot;&#xD;&#xA;powershell .\PostBuildEvent.ps1 akka.websocket.dll Release" />
+	</Target>
+
+	<Target Name="PostBuild" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
+		<Exec Command="powershell -c &quot;write-host '====== Start Post-Build Event ======'&quot;&#xD;&#xA;powershell .\PostBuildEvent.ps1 akka.websocket.dll Debug" /> 
+	</Target>
 
 </Project>
