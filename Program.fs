@@ -435,12 +435,24 @@ module SimpleKiller =
                         log.Info("KillActor received string[] payload for command: {0}", command)
 
             | :? string as msg when String.Equals(msg, "healthcheck", StringComparison.OrdinalIgnoreCase) ->
-                printfn "checking healthness by actor"
+                printfn $"checking healthness by actor, wsOpt.IsNone: {wsOpt.IsNone}"
                 if wsOpt.IsNone then
                     this.Sender.Tell("ok", this.Self)
                 else
-                    wsOpt.Value.send Text (ArraySegment<byte>(Encoding.UTF8.GetBytes "ok")) true
-                    |> Async.Ignore
+                    async {
+                        let! rtn = wsOpt.Value.send Text (ArraySegment<byte>(Encoding.UTF8.GetBytes "ok")) true
+                        match rtn with
+                        | Choice1Of2 () -> ()
+                        | Choice2Of2 ex ->
+                            match ex with
+                            | SocketError se ->
+                                log.Warning(sprintf "KillActor failure: SocketError: %A" se)
+                            | InputDataError v ->
+                                log.Warning(sprintf "KillActor failure: InputDataError: %A" v)
+                            | ConnectionError ce ->
+                                log.Warning($"KillActor failure: ConnectionError: {ce}")
+                        
+                    }
                     |> Async.Start
 
             | :? string as msg when String.Equals(msg, "kill", StringComparison.OrdinalIgnoreCase) ->
