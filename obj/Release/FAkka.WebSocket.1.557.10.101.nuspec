@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>FAkka.WebSocket</id>
+    <version>1.557.10.101</version>
+    <title>FAkka.WebSocket</title>
+    <authors>Akka.WebSocket contributors</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <description>Lightweight bridge that pushes WebSocket payloads into an Akka.NET actor system using Suave.</description>
+    <tags>akka suave websocket fsharp</tags>
+    <repository type="git" url="https://github.com/ingted/akka.websocket" commit="8af99bc60b40a5623c6d1732cb74bf487048f926" />
+    <dependencies>
+      <group targetFramework="net9.0">
+        <dependency id="Akka" version="1.5.57" exclude="Build,Analyzers" />
+        <dependency id="Akka.Cluster" version="1.5.57" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="10.0.101" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.4" exclude="Build,Analyzers" />
+        <dependency id="Suave" version="2.5.6" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net10.0">
+        <dependency id="Akka" version="1.5.57" exclude="Build,Analyzers" />
+        <dependency id="Akka.Cluster" version="1.5.57" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="10.0.101" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.4" exclude="Build,Analyzers" />
+        <dependency id="Suave" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Akka" version="1.5.57" exclude="Build,Analyzers" />
+        <dependency id="Akka.Cluster" version="1.5.57" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="10.0.101" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.4" exclude="Build,Analyzers" />
+        <dependency id="Suave" version="2.5.6" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\bin\Release\net10.0\akka.websocket.runtimeconfig.json" target="lib\net10.0\akka.websocket.runtimeconfig.json" />
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\bin\Release\net10.0\akka.websocket.dll" target="lib\net10.0\akka.websocket.dll" />
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\bin\Release\net9.0\akka.websocket.runtimeconfig.json" target="lib\net9.0\akka.websocket.runtimeconfig.json" />
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\bin\Release\net9.0\akka.websocket.dll" target="lib\net9.0\akka.websocket.dll" />
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\bin\Release\netstandard2.0\akka.websocket.dll" target="lib\netstandard2.0\akka.websocket.dll" />
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\README.md" target="README.md" />
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\THIRD-PARTY-NOTICES.md" target="THIRD-PARTY-NOTICES.md" />
+    <file src="G:\PulseTrade.fs\Libs\Akka.WebSocket\LICENSE" target="LICENSE" />
+  </files>
+</package>

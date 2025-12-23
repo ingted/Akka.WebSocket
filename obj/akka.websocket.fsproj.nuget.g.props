@@ -7,27 +7,35 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Administrator\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.12.3</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">7.0.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\Administrator\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net9.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\Administrator\.nuget\packages\fsharp.core\9.0.300</PkgFSharp_Core>
-    <PkgSuave Condition=" '$(PkgSuave)' == '' ">C:\Users\Administrator\.nuget\packages\suave\2.5.6</PkgSuave>
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Administrator\.nuget\packages\newtonsoft.json\13.0.3</PkgNewtonsoft_Json>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net10.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\Administrator\.nuget\packages\fsharp.core\10.0.101</PkgFSharp_Core>
+    <PkgSuave Condition=" '$(PkgSuave)' == '' ">C:\Users\Administrator\.nuget\packages\suave\3.2.0</PkgSuave>
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Administrator\.nuget\packages\newtonsoft.json\13.0.4</PkgNewtonsoft_Json>
     <PkgAkka_Analyzers Condition=" '$(PkgAkka_Analyzers)' == '' ">C:\Users\Administrator\.nuget\packages\akka.analyzers\0.3.3</PkgAkka_Analyzers>
-    <PkgAkka Condition=" '$(PkgAkka)' == '' ">C:\Users\Administrator\.nuget\packages\akka\1.5.54</PkgAkka>
-    <PkgAkka_Cluster Condition=" '$(PkgAkka_Cluster)' == '' ">C:\Users\Administrator\.nuget\packages\akka.cluster\1.5.54</PkgAkka_Cluster>
+    <PkgAkka Condition=" '$(PkgAkka)' == '' ">C:\Users\Administrator\.nuget\packages\akka\1.5.57</PkgAkka>
+    <PkgAkka_Cluster Condition=" '$(PkgAkka_Cluster)' == '' ">C:\Users\Administrator\.nuget\packages\akka.cluster\1.5.57</PkgAkka_Cluster>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net9.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\Administrator\.nuget\packages\fsharp.core\10.0.101</PkgFSharp_Core>
+    <PkgSuave Condition=" '$(PkgSuave)' == '' ">C:\Users\Administrator\.nuget\packages\suave\2.5.6</PkgSuave>
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Administrator\.nuget\packages\newtonsoft.json\13.0.4</PkgNewtonsoft_Json>
+    <PkgAkka_Analyzers Condition=" '$(PkgAkka_Analyzers)' == '' ">C:\Users\Administrator\.nuget\packages\akka.analyzers\0.3.3</PkgAkka_Analyzers>
+    <PkgAkka Condition=" '$(PkgAkka)' == '' ">C:\Users\Administrator\.nuget\packages\akka\1.5.57</PkgAkka>
+    <PkgAkka_Cluster Condition=" '$(PkgAkka_Cluster)' == '' ">C:\Users\Administrator\.nuget\packages\akka.cluster\1.5.57</PkgAkka_Cluster>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\Administrator\.nuget\packages\fsharp.core\9.0.300</PkgFSharp_Core>
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\Administrator\.nuget\packages\fsharp.core\10.0.101</PkgFSharp_Core>
     <PkgSuave Condition=" '$(PkgSuave)' == '' ">C:\Users\Administrator\.nuget\packages\suave\2.5.6</PkgSuave>
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Administrator\.nuget\packages\newtonsoft.json\13.0.3</PkgNewtonsoft_Json>
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Administrator\.nuget\packages\newtonsoft.json\13.0.4</PkgNewtonsoft_Json>
     <PkgNETStandard_Library Condition=" '$(PkgNETStandard_Library)' == '' ">C:\Users\Administrator\.nuget\packages\netstandard.library\2.0.3</PkgNETStandard_Library>
     <PkgAkka_Analyzers Condition=" '$(PkgAkka_Analyzers)' == '' ">C:\Users\Administrator\.nuget\packages\akka.analyzers\0.3.3</PkgAkka_Analyzers>
-    <PkgAkka Condition=" '$(PkgAkka)' == '' ">C:\Users\Administrator\.nuget\packages\akka\1.5.54</PkgAkka>
-    <PkgAkka_Cluster Condition=" '$(PkgAkka_Cluster)' == '' ">C:\Users\Administrator\.nuget\packages\akka.cluster\1.5.54</PkgAkka_Cluster>
+    <PkgAkka Condition=" '$(PkgAkka)' == '' ">C:\Users\Administrator\.nuget\packages\akka\1.5.57</PkgAkka>
+    <PkgAkka_Cluster Condition=" '$(PkgAkka_Cluster)' == '' ">C:\Users\Administrator\.nuget\packages\akka.cluster\1.5.57</PkgAkka_Cluster>
   </PropertyGroup>
 </Project>

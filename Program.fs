@@ -80,11 +80,22 @@ module WebSocketServer =
 
     type SocketPayload = byte[]
 
+#if NET10_0_OR_GREATER
+    let emptyPayload : ByteSegment = Memory<byte>.Empty
+#else
     let emptyPayload : SocketPayload = Array.empty<byte>
+#endif
 
+#if NET10_0_OR_GREATER
+// 假設你的定義是: type ByteSegment = Memory<byte>
+    let decodeUtf8 (data: ByteSegment) =
+        // 直接使用 .Span 屬性
+        // Encoding.GetString 有一個多載可以吃 ReadOnlySpan<byte>
+        Encoding.UTF8.GetString(data.Span)
+#else
     let decodeUtf8 (data: SocketPayload) =
         Encoding.UTF8.GetString data
-
+#endif
     let sendWithReply<'TResponse>
         (system: ActorSystem)
         (target: IActorRef)
@@ -106,10 +117,15 @@ module WebSocketServer =
                 system.Stop(adapter)
         }
 
+#if NET10_0_OR_GREATER
+    // 假設 data 是 byte[] (原本的 SocketPayload)
+    let inline sendFrame (ws: WebSocket) opcode (bSegment: ByteSegment) =
+        ws.send opcode bSegment true
+#else
     let inline sendFrame (ws: WebSocket) opcode (data: SocketPayload) =
         let segment = ArraySegment<byte>(data, 0, data.Length)
         ws.send opcode segment true
-
+#endif
     let websocketLoop
         (actorSystem: ActorSystem)
         (handleActorGetter: ActorSystem -> WebSocket option -> IActorRef option)
@@ -130,7 +146,11 @@ module WebSocketServer =
                     let! msg = ws.read()
 
                     match msg with
+#if NET10_0_OR_GREATER
+                    | (Text, (data: ByteSegment), true) ->
+#else
                     | (Text, (data: SocketPayload), true) ->
+#endif
                         let payload = decodeUtf8 data
                         logger.Debug("Forwarding WebSocket payload: {0}", payload)
 
@@ -169,8 +189,11 @@ module WebSocketServer =
                         logger.Info("Client requested WebSocket close.")
                         do! sendFrame ws Close emptyPayload
                         return ()
-
+#if NET10_0_OR_GREATER
+                    | (Ping, (data: ByteSegment), _) ->
+#else
                     | (Ping, (data: SocketPayload), _) ->
+#endif
                         do! sendFrame ws Pong data
                         return! loop ()
 
@@ -236,10 +259,17 @@ module WebSocketServer =
                     bindings = [ HttpBinding.createSimple HTTP host port ]
                     homeFolder = None }
 
-        let listening, server = startWebServerAsync config webApp
         let cts = new CancellationTokenSource()
-
+#if NET10_0_OR_GREATER
+        let config = { config with cancellationToken = cts.Token }
+        let listening, (server:Task) = startWebServerAsync config webApp
+        server.ContinueWith(fun (t:Task) -> 
+            if t.IsFaulted then printfn "Server crashed: %A" t.Exception) |> ignore
+#else
+        let listening, (server:Async<unit>) = startWebServerAsync config webApp
         Async.Start(server, cancellationToken = cts.Token)
+#endif
+
 
         listening
         |> Async.Catch
@@ -440,10 +470,28 @@ module SimpleKiller =
                     this.Sender.Tell("ok", this.Self)
                 else
                     async {
+#if NET10_0_OR_GREATER
+                        let payload = "ok" |> Encoding.UTF8.GetBytes |> Memory<byte>
+                        // 1. 先呼叫 .AsTask() 轉成普通 Task
+                        // 2. 再呼叫 Async.AwaitTask
+                        let! rtn = 
+                            wsOpt.Value.send Text payload true 
+                            |> (fun vt -> vt.AsTask()) 
+                            |> Async.AwaitTask
+#else
                         let! rtn = wsOpt.Value.send Text (ArraySegment<byte>(Encoding.UTF8.GetBytes "ok")) true
+#endif
                         match rtn with
+#if NET10_0_OR_GREATER
+                        | Ok () -> ()
+#else
                         | Choice1Of2 () -> ()
+#endif
+#if NET10_0_OR_GREATER
+                        | Result.Error ex ->
+#else
                         | Choice2Of2 ex ->
+#endif
                             match ex with
                             | SocketError se ->
                                 log.Warning(sprintf "KillActor failure: SocketError: %A" se)

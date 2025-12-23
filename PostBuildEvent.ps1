@@ -1,5 +1,5 @@
 ﻿param(
-    $assembly = "akka.websocket"
+    $assembly = "fakka.websocket"
     , $build = "Release"
 )
 
@@ -33,23 +33,20 @@ function Get-LibPacksContent {
 }
 
 write-host ("[PostBuilkd]" + $assembly + ': Current path: ' + (pwd).path)
-cd ./bin/$build/net472
-try {
-    #$pkg = (dir "$($assembly)*.nupkg" | Sort-Object -Property { Get-VersionFromFileName $_.Name } -Descending)[0]
-    #write-host "<dotnet nuget push $($pkg.Name)>"
-    #invoke-expression "dotnet nuget push $($pkg.Name) --api-key $(gc G:\Nuget\apikey.txt) --source https://api.nuget.org/v3/index.json  --skip-duplicate"
-    #copy   $pkg.FullName "C:\Program Files\dotnet\sdk\7.0.410\FSharp\library-packs" -force
-    #copy   $pkg.FullName "C:\Program Files\dotnet\sdk\8.0.100-rc.2.23502.2\FSharp\library-packs" -force
-    #copy   $pkg.FullName "C:\Program Files\dotnet\sdk\8.0.302\FSharp\library-packs" -force
-    #copy   $pkg.FullName $(Get-LibPacksContent) -force
-    copy   "$($assembly)" "../../../../DB2Query/DB2FQueryWrapper/Assemblies" -force
-    copy   "$($assembly)" "../../../../DB2Query/DB2FQueryWrapper/bin/$build/net472" -force
-    copy   "$($assembly)" "//10.36.206.244/s$/PFCF_RT" -force
-}
-catch {
-    write-host "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
-    write-host $_
-    write-host "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
-}
 
-cd ../../..
+if ($build -eq "Release") {
+    cd ./bin/$build
+    try {
+        $pkg = (dir "$($assembly)*.nupkg" | Sort-Object -Property { Get-VersionFromFileName $_.Name } -Descending)[0]
+        write-host "<dotnet nuget push $($pkg.Name)>"
+        invoke-expression "dotnet nuget push $($pkg.Name) --api-key $(gc G:\Nuget\apikey.txt) --source https://api.nuget.org/v3/index.json  --skip-duplicate"
+        copy   $pkg.FullName $(Get-LibPacksContent) -force
+    }
+    catch {
+        write-host "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
+        write-host $_
+        write-host "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
+    }
+
+    cd ../..
+}
