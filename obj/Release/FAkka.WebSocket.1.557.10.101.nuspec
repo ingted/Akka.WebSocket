@@ -10,7 +10,7 @@
     <readme>README.md</readme>
     <description>Lightweight bridge that pushes WebSocket payloads into an Akka.NET actor system using Suave.</description>
     <tags>akka suave websocket fsharp</tags>
-    <repository type="git" url="https://github.com/ingted/akka.websocket" commit="8af99bc60b40a5623c6d1732cb74bf487048f926" />
+    <repository type="git" url="https://github.com/ingted/akka.websocket" commit="59551f8ca03d3024de8276a39092b4aff126c740" />
     <dependencies>
       <group targetFramework="net9.0">
         <dependency id="Akka" version="1.5.57" exclude="Build,Analyzers" />

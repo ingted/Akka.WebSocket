@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<linker>
+  <assembly fullname="akka.websocket">
+    <resource name="FSharpSignatureData.akka.websocket" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedData.akka.websocket" action="remove"></resource>
+    <resource name="FSharpSignatureDataB.akka.websocket" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedDataB.akka.websocket" action="remove"></resource>
+    <resource name="FSharpOptimizationData.akka.websocket" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedData.akka.websocket" action="remove"></resource>
+    <resource name="FSharpOptimizationDataB.akka.websocket" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedDataB.akka.websocket" action="remove"></resource>
+    <resource name="FSharpOptimizationInfo.akka.websocket" action="remove"></resource>
+    <resource name="FSharpSignatureInfo.akka.websocket" action="remove"></resource>
+  </assembly>
+</linker>

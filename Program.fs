@@ -96,6 +96,85 @@ module WebSocketServer =
     let decodeUtf8 (data: SocketPayload) =
         Encoding.UTF8.GetString data
 #endif
+
+#if NET10_0_OR_GREATER
+    // 輔助函式：將 string 轉為 ByteSegment
+    let encodeUtf8 (text: string) : ByteSegment = 
+        Encoding.UTF8.GetBytes(text).AsMemory()
+#else
+    // 輔助函式：將 string 轉為 SocketPayload
+    let encodeUtf8 (text: string) : SocketPayload = 
+        Encoding.UTF8.GetBytes(text)
+#endif
+
+#if NET10_0_OR_GREATER
+    // 假設 data 是 byte[] (原本的 SocketPayload)
+    let inline sendFrame (ws: WebSocket) opcode (bSegment: ByteSegment) =
+        ws.send opcode bSegment true
+#else
+    let inline sendFrame (ws: WebSocket) opcode (data: SocketPayload): Async<Choice<unit, Error>> =
+        let segment = ArraySegment<byte>(data, 0, data.Length)
+        ws.send opcode segment true
+#endif
+
+
+    let handleSent (logOpt:ILoggingAdapter option) rtn =
+        match rtn with
+#if NET10_0_OR_GREATER
+        | Ok () -> ()
+#else
+        | Choice1Of2 () -> ()
+#endif
+#if NET10_0_OR_GREATER
+        | Result.Error ex ->
+#else
+        | Choice2Of2 ex ->
+#endif
+            if logOpt.IsSome then
+                let log = logOpt.Value
+                match ex with
+                | SocketError se ->
+                    log.Warning(sprintf "KillActor failure: SocketError: %A" se)
+                | InputDataError v ->
+                    log.Warning(sprintf "KillActor failure: InputDataError: %A" v)
+                | ConnectionError ce ->
+                    log.Warning($"KillActor failure: ConnectionError: {ce}")
+
+    /// <summary>
+    /// 這是一個短命的 Proxy Actor，生命週期等同於 WebSocket 連線。
+    /// 它代表「遠端的瀏覽器」，當其他 Actor 對它 Tell 時，它會寫入 WS。
+    /// </summary>
+    type WebSocketResponseActor(ws: WebSocket) as self =
+        inherit UntypedActor()
+
+        let ia = self :> IInternalActor
+        let log = ia.ActorContext.GetLogger()
+
+        override _.OnReceive (message: obj) =
+            match message with
+            | :? string as text ->
+                // 收到字串 -> 轉成 UTF8 -> 發送 Text Frame
+                let payload = encodeUtf8 text
+                
+                // Fire-and-forget 發送 (不等待結果，避免阻塞 Actor Mailbox)
+                async {
+#if NET10_0_OR_GREATER
+                    // .NET 10 / Suave 3.x (ValueTask)
+                    let task = sendFrame ws Text payload
+                    let! rtn = task.AsTask() |> Async.AwaitTask
+#else
+                    // Old Suave (Async)
+                    let! rtn = sendFrame ws Text payload
+
+#endif
+                    handleSent (Some log) rtn
+                } |> Async.Start
+
+            | _ -> 
+                // 也可以擴充支援 byte[] 等其他格式
+                ()
+
+
     let sendWithReply<'TResponse>
         (system: ActorSystem)
         (target: IActorRef)
@@ -117,15 +196,7 @@ module WebSocketServer =
                 system.Stop(adapter)
         }
 
-#if NET10_0_OR_GREATER
-    // 假設 data 是 byte[] (原本的 SocketPayload)
-    let inline sendFrame (ws: WebSocket) opcode (bSegment: ByteSegment) =
-        ws.send opcode bSegment true
-#else
-    let inline sendFrame (ws: WebSocket) opcode (data: SocketPayload) =
-        let segment = ArraySegment<byte>(data, 0, data.Length)
-        ws.send opcode segment true
-#endif
+
     let websocketLoop
         (actorSystem: ActorSystem)
         (handleActorGetter: ActorSystem -> WebSocket option -> IActorRef option)
@@ -141,6 +212,17 @@ module WebSocketServer =
                 return ()
             }
         | Some handler ->
+            // 1. 【關鍵修改】建立代表這個 WebSocket Client 的代理 Actor
+            // 使用 Guid 避免名稱衝突
+            let proxyName = $"ws-client-{Guid.NewGuid()}"
+            let proxyProps = Props.Create(fun () -> WebSocketResponseActor(ws))
+            let proxyActor = actorSystem.ActorOf(proxyProps, proxyName)
+            
+            // 2. 確保 loop 結束時銷毀這個 Actor (Dispose)
+            let cleanup () =
+                logger.Debug($"WebSocket closed, stopping proxy actor: {proxyName}")
+                actorSystem.Stop(proxyActor)
+
             let rec loop () =
                 socket {
                     let! msg = ws.read()
@@ -164,19 +246,19 @@ module WebSocketServer =
                                             elements
                                             |> Seq.map (fun element -> element.ToObject<string>())
                                             |> Seq.toArray
-                                        handler.Tell(values, ActorRefs.NoSender)
+                                        handler.Tell(values, proxyActor)
                                         true
                                     else
                                         false
                                 | :? JValue as value when value.Type = JTokenType.String ->
-                                    handler.Tell(value.ToObject<string>(), ActorRefs.NoSender)
+                                    handler.Tell(value.ToObject<string>(), proxyActor)
                                     true
                                 | _ -> false
                             with
                             | :? JsonReaderException -> false
 
                         if not handledAsJson then
-                            handler.Tell(payload, ActorRefs.NoSender)
+                            handler.Tell(payload, proxyActor)
 
                         return! loop ()
 
@@ -205,7 +287,17 @@ module WebSocketServer =
                         return! loop ()
                 }
 
-            loop ()
+            // 使用 try...finally 確保 Actor 被銷毀
+            socket {
+                try
+                    return! loop ()
+                with ex ->
+                    logger.Error($"WebSocket loop error: {ex.Message}")
+                    return ()
+            }
+            |> Suave.Sockets.SocketOp.map (fun x -> 
+                cleanup() // Loop 結束時執行清理
+            )
 
     /// Start a Suave WebSocket endpoint that forwards JSON text frames to the supplied actor.
     let start
@@ -282,7 +374,7 @@ module WebSocketServer =
         new ServerHandle(cts)
 
 module SimpleKiller =
-
+    open WebSocketServer
     open System
     open System.Diagnostics
     open System.Runtime.InteropServices
@@ -481,24 +573,7 @@ module SimpleKiller =
 #else
                         let! rtn = wsOpt.Value.send Text (ArraySegment<byte>(Encoding.UTF8.GetBytes "ok")) true
 #endif
-                        match rtn with
-#if NET10_0_OR_GREATER
-                        | Ok () -> ()
-#else
-                        | Choice1Of2 () -> ()
-#endif
-#if NET10_0_OR_GREATER
-                        | Result.Error ex ->
-#else
-                        | Choice2Of2 ex ->
-#endif
-                            match ex with
-                            | SocketError se ->
-                                log.Warning(sprintf "KillActor failure: SocketError: %A" se)
-                            | InputDataError v ->
-                                log.Warning(sprintf "KillActor failure: InputDataError: %A" v)
-                            | ConnectionError ce ->
-                                log.Warning($"KillActor failure: ConnectionError: {ce}")
+                        handleSent (Some log) rtn
                         
                     }
                     |> Async.Start
@@ -638,3 +713,60 @@ akka {{
     let main args =
         demo args
         0
+
+
+
+(*
+Test in console of a browser:
+
+(function testWebSocket() {
+    // 1. 設定目標位址 (根據你的 F# 預設值: Port 8080, Path /ws)
+    const host = "localhost"; // 如果 Server 在別台機器，請改 IP
+    const port = 8080;
+    const path = "ws"; 
+    const url = `ws://${host}:${port}/${path}`;
+
+    console.log(`🚀 嘗試連線至: ${url}`);
+
+    try {
+        const ws = new WebSocket(url);
+
+        // 連線成功事件
+        ws.onopen = () => {
+            console.log("%c✅ 連線成功 (Connected)", "color: green; font-weight: bold;");
+            
+            // 發送測試訊息
+            const payload = "Hello Akka.NET!";
+            console.log(`📤 發送訊息: "${payload}"`);
+            ws.send(payload);
+        };
+
+        // 接收訊息事件 (預期會收到 Echo)
+        ws.onmessage = (event) => {
+            console.log("%c📥 收到回覆 (Received):", "color: blue; font-weight: bold;", event.data);
+            
+            // 收到回覆後，可選擇關閉連線
+            // ws.close(); 
+        };
+
+        // 錯誤處理
+        ws.onerror = (err) => {
+            console.error("❌ 發生錯誤 (Error):", err);
+            console.log("💡 提示: 請確認 F# 程式已啟動，且沒有被防火牆擋住 Port 8080。");
+        };
+
+        // 連線關閉
+        ws.onclose = (evt) => {
+            console.log(`⚠️ 連線已關閉 (Closed) - Code: ${evt.code}, Reason: ${evt.reason}`);
+        };
+
+        // 將 ws 物件掛到 window 上，方便你在 Console 手動玩 (例如 window.debugWS.send("test"))
+        window.debugWS = ws;
+        console.log("ℹ️  WebSocket 物件已儲存至 'window.debugWS'，你可以手動輸入 debugWS.send('...')");
+
+    } catch (e) {
+        console.error("💥 初始化失敗:", e);
+    }
+})();
+
+*)
