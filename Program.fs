@@ -424,7 +424,7 @@ module SimpleKiller =
             printfn "PowerShell started without inherited handles."
 
 
-    type KillActor(system: ActorSystem, nodeAddress: string, wsOpt:WebSocket option) as this =
+    type KillActor((f:unit -> unit), system: ActorSystem, nodeAddress: string, wsOpt:WebSocket option) as this =
         inherit UntypedActor()
 
         let log = system.Log
@@ -580,6 +580,7 @@ module SimpleKiller =
 
             | :? string as msg when String.Equals(msg, "kill", StringComparison.OrdinalIgnoreCase) ->
                 log.Info("KillActor killing now (no automation payload).")
+                f ()
                 Environment.Exit(0)
 
             | :? string as msg ->
@@ -588,12 +589,12 @@ module SimpleKiller =
             | msg -> 
                 log.Info(sprintf "KillActor received payload: %A" msg)
 
-    let simpleKillerFun nodeAddress (actorSystem:ActorSystem) (wsOpt:WebSocket option) =
+    let simpleKillerFun (f:unit -> unit) nodeAddress (actorSystem:ActorSystem) (wsOpt:WebSocket option) =
         lock KillActor.locker (fun _ ->
             if KillActor.iaref.IsSome then
                 KillActor.iaref
             else
-                let killProps = Props.Create<KillActor>(actorSystem, nodeAddress, wsOpt)
+                let killProps = Props.Create<KillActor>(f, actorSystem, nodeAddress, wsOpt)
                 let killActor = actorSystem.ActorOf(killProps, "ws-kill")
                 KillActor.iaref <- Some killActor
                 Some killActor
@@ -679,7 +680,7 @@ akka {{
         let server = WebSocketServer.start actorSystem "ws" None (Choice2Of2 (httpHost, httpPort)) echoActorGetter
         log.Info("Suave WebSocket bridge listening on ws://{0}:{1}/ws", httpHost, httpPort)
 
-        let server2 = WebSocketServer.start actorSystem "ws2" None (Choice2Of2 (httpHost, 60254)) (SimpleKiller.simpleKillerFun httpHost)
+        let server2 = WebSocketServer.start actorSystem "ws2" None (Choice2Of2 (httpHost, 60254)) (SimpleKiller.simpleKillerFun (fun () -> ()) httpHost)
 
         let shutdownLock = obj ()
         let mutable stopped = false

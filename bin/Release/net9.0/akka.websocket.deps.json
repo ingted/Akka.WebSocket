@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "akka.websocket/1.557.10.101": {
+      "akka.websocket/1.557.10.101002": {
         "dependencies": {
           "Akka": "1.5.57",
           "Akka.Cluster": "1.5.57",
@@ -375,7 +375,7 @@
     }
   },
   "libraries": {
-    "akka.websocket/1.557.10.101": {
+    "akka.websocket/1.557.10.101002": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

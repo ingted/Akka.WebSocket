@@ -14,7 +14,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/ingted/akka.websocket</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.557.10.101</Version>
+    <Version>1.557.10.101002</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 

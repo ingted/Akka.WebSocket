@@ -3127,7 +3127,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.557.10.101",
+    "version": "1.557.10.101002",
     "restore": {
       "projectUniqueName": "G:\\PulseTrade.fs\\Libs\\Akka.WebSocket\\akka.websocket.fsproj",
       "projectName": "FAkka.WebSocket",
@@ -3153,6 +3153,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\10.0.101\\FSharp\\library-packs": {},
+        "M:\\git\\LocalFeed": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

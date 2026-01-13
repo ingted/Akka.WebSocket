@@ -8,3 +8,10 @@ G:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.fsp
 G:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.sourcelink.json
 G:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.dll
 G:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.pdb
+D:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.fsproj.AssemblyReference.cache
+D:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.AssemblyInfoInputs.cache
+D:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.AssemblyInfo.fs
+D:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.fsproj.CoreCompileInputs.cache
+D:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.sourcelink.json
+D:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.dll
+D:\PulseTrade.fs\Libs\Akka.WebSocket\obj\Debug\netstandard2.0\akka.websocket.pdb

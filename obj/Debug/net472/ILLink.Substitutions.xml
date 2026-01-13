@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<linker>
+  <assembly fullname="akka.websocket.NETFX">
+    <resource name="FSharpSignatureData.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedData.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpSignatureDataB.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedDataB.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpOptimizationData.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedData.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpOptimizationDataB.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedDataB.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpOptimizationInfo.akka.websocket.NETFX" action="remove"></resource>
+    <resource name="FSharpSignatureInfo.akka.websocket.NETFX" action="remove"></resource>
+  </assembly>
+</linker>
